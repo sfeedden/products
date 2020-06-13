@@ -1,4 +1,12 @@
 products = []
+with open('products.csv', 'r', encoding='utf-8') as f:
+	for line in f:
+		if'商品,價格' in line:
+			continue #繼續，進入下一回迴圈
+		name, price = line.strip().split(',') #用,當作切割
+		products.append([name, price])
+print(products)
+
 while True:
 	name = input('請輸入商品名：')
 	if name == 'quit':
@@ -13,7 +21,6 @@ while True:
 	products.append(p)
 
     # 方法三：producsts.append([name, price])
-
 print(products)
 print(products[0][0])
 
